@@ -38,11 +38,13 @@ if (menuToggle && mainNav) {
 function openWhatsApp(message) {
   const number = WHATSAPP_NUMBER.replace(/\D/g, "");
 
-  if (!number) {
-    alert("The WhatsApp number has not been added yet. Open script.js and enter the business number in WHATSAPP_NUMBER.");
-    return;
-  }
+function openWhatsApp(message) {
+  const number = WHATSAPP_NUMBER.replace(/\D/g, "");
 
+  const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+  
   const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
   window.open(url, "_blank", "noopener,noreferrer");
 }
