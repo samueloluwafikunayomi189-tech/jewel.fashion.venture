@@ -114,29 +114,62 @@
       <p class="gallery-note">Explore 15 fashion image placements across the collections and gallery. These online inspiration photos require an internet connection; your own product photos can be added as they become available.</p>
     </section>
 
-    <section class="contact section-pad" id="contact">
-      <div class="contact-frame">
-        <div class="contact-decor">✦</div>
-        <div class="section-kicker">YOUR NEXT LOOK STARTS HERE</div>
-        <h2>Let's create something<br><em>beautiful together.</em></h2>
-        <p>Have a design in mind or found a style you love? Get in touch to ask about availability, sizing, and custom orders.</p>
-        <button class="btn btn-gold" id="whatsappButton">Chat with us on WhatsApp <span>↗</span></button>
-        <small class="contact-note">Message us to discuss your preferred style, sizing, and custom orders.</small>
-      </div>
-    </section>
-  </main>
+    
+<section class="contact section-pad" id="login">
+  <div class="contact-frame">
+    <div class="section-kicker">ADMIN ACCESS</div>
+    <h2>Admin <em>Login</em></h2>
 
-  <footer class="site-footer">
-    <a class="brand footer-brand" href="#home"><span class="brand-mark">J</span><span class="brand-copy"><strong>JEWEL</strong><small>FASHION DESIGNER VENTURE</small></span></a>
-    <p>Elegance in every stitch.</p>
-    <div class="footer-links"><a href="#home">Home</a><a href="#collections">Collections</a><a href="#contact">Contact</a></div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Jewel Fashion Designer Venture</span><span>CRAFTED WITH STYLE <b>✦</b></span></div>
-  </footer>
-  
+    <form id="loginForm">
+      <input
+        type="email"
+        id="loginEmail"
+        placeholder="Admin email"
+        required
+      >
+
+      <input
+        type="password"
+        id="loginPassword"
+        placeholder="Password"
+        required
+      >
+
+      <button type="submit" class="btn btn-gold">
+        Login
+      </button>
+
+      <p id="loginMessage"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <a class="brand footer-brand" href="#home">
+    <span class="brand-mark">J</span>
+    <span class="brand-copy">
+      <strong>JEWEL</strong>
+      <small>FASHION DESIGNER VENTURE</small>
+    </span>
+  </a>
+
+  <p>Elegance in every stitch.</p>
+
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Jewel Fashion Designer Venture</span>
+    <span>CRAFTED WITH STYLE <b>✦</b></span>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
-</body>
-</html>
-
 </body>
 </html>
