@@ -37,19 +37,12 @@ if (menuToggle && mainNav) {
 
 function openWhatsApp(message) {
   const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-
-function openWhatsApp(message) {
-  const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-
   const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
   window.open(url, "_blank");
 }
-  
-  const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank", "noopener,noreferrer");
-}
 
 const whatsappButton = document.getElementById("whatsappButton");
+
 if (whatsappButton) {
   whatsappButton.addEventListener("click", () => {
     openWhatsApp("Hello Jewel Fashion Designer Venture, I would like to make an enquiry about your fashion designs.");
