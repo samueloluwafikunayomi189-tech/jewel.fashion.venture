@@ -59,3 +59,30 @@ document.querySelectorAll("[data-order]").forEach((link) => {
 
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    loginMessage.textContent = "Signing in...";
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      loginMessage.textContent = "Login failed: " + error.message;
+      return;
+    }
+
+    loginMessage.textContent = "Login successful!";
+
+    window.location.href = "admin.html";
+  });
+                 }
