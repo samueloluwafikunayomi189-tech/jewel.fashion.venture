@@ -1,9 +1,14 @@
+
 /*
   JEWEL FASHION DESIGNER VENTURE
   Add the WhatsApp number when you are ready:
   Use country code, digits only, without + or spaces.
-  Example format for Nigeria: 2348012345678
+  Example for Nigeria: 2348012345678
 */
+
+const SUPABASE_URL = "https://bzqfnvryzmwidqthptmr.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JKc42ZuJpaHIWXFk0K4I9g_QzqVo1xU";
+
 const WHATSAPP_NUMBER = "+234 906 423 8417";
 
 const menuToggle = document.getElementById("menuToggle");
