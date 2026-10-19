@@ -4,7 +4,7 @@
   Use country code, digits only, without + or spaces.
   Example format for Nigeria: 2348012345678
 */
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "+234 906 423 8417";
 
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
