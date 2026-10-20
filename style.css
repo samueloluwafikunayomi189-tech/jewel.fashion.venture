@@ -135,3 +135,72 @@ h2 { font-size: clamp(40px, 5vw, 66px); line-height: .98; margin: 0; letter-spac
   .footer-links { gap: 12px; font-size: 8px; }
   .footer-bottom { flex-direction: column; }
 }
+
+/* CUSTOMER CONTACT SECTION */
+.contact-section {
+  margin: 50px auto;
+  padding: 45px 22px;
+  max-width: 850px;
+  text-align: center;
+  background: #101010;
+  border: 1px solid #c9a45c;
+  color: #f5f0e6;
+  box-sizing: border-box;
+}
+
+.contact-label {
+  color: #c9a45c;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.contact-section h2 {
+  color: #d4b16a;
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.contact-section > p:not(.contact-label) {
+  line-height: 1.8;
+}
+
+.contact-whatsapp {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 16px 24px;
+  background: #c9a45c;
+  color: #101010;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.contact-whatsapp:hover {
+  background: #e0c783;
+}
+
+.contact-note {
+  font-size: 13px;
+  color: #bdb6a9;
+}
+
+/* FLOATING WHATSAPP BUTTON */
+.floating-whatsapp {
+  position: fixed;
+  right: 16px;
+  bottom: 25px;
+  z-index: 9999;
+  display: block;
+  padding: 14px 18px;
+  border-radius: 30px;
+  background: #25D366;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.floating-whatsapp:hover {
+  background: #1da851;
+}
+
