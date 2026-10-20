@@ -140,9 +140,10 @@ async function adminLogin() {
   }
 
   if (data.session) {
-    alert("Login successful!");
-    window.location.href = "admin.html";
-  }
+  document.getElementById("adminDashboard").style.display = "block";
+  document.querySelector("header").style.display = "none";
+  document.querySelector("main > section.panel").style.display = "none";
+  alert("Login successful!");
 }
   
 </script>
