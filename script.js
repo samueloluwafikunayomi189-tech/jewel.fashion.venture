@@ -12,6 +12,7 @@ const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
+window.supabaseClient = supabaseClient;
 const WHATSAPP_NUMBER = "+234 906 423 8417";
 
 const menuToggle = document.getElementById("menuToggle");
