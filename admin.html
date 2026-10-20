@@ -112,6 +112,7 @@
 
 <script>
   
+
 async function adminLogin() {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
@@ -121,15 +122,26 @@ async function adminLogin() {
     return;
   }
 
-  const { data, error } = await window.supabaseClient.auth
-    .signInWithPassword({ email, password });
+  if (!window.supabaseClient) {
+    alert("Supabase is not connected. Please check the setup.");
+    return;
+  }
+
+  const { data, error } =
+    await window.supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
 
   if (error) {
     alert("Login failed: " + error.message);
     return;
   }
 
-  alert("Login successful!");
+  if (data.session) {
+    alert("Login successful!");
+    window.location.href = "admin.html";
+  }
 }
   
 </script>
