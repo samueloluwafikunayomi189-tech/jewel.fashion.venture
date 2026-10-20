@@ -63,6 +63,8 @@ const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("loginMessage");
+document.getElementById("loginEmail")
+document.getElementById("loginPassword")
 
 if (loginForm) {
   loginForm.addEventListener("submit", async (event) => {
