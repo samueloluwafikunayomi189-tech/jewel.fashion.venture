@@ -91,3 +91,65 @@ if (loginForm) {
     window.location.href = "admin.html";
   });
                  }
+async function adminLogin() {
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+
+if (!emailInput || !passwordInput) {
+alert("Admin login fields were not found.");
+return;
+}
+
+if (!window.supabaseClient) {
+alert("Supabase did not load. Please check script.js.");
+return;
+}
+
+const email = emailInput.value.trim();
+const password = passwordInput.value;
+
+if (!email || !password) {
+alert("Enter your admin email and password.");
+return;
+}
+
+const button = document.querySelector(
+'button[onclick="adminLogin()"]'
+);
+
+if (button) {
+button.disabled = true;
+button.textContent = "Signing in...";
+}
+
+try {
+const { data, error } =
+await window.supabaseClient.auth.signInWithPassword({
+email,
+password
+});
+
+if (error) {  
+  alert("Login failed: " + error.message);  
+  return;  
+}  
+
+if (!data.session) {  
+  alert("Login failed: no active session was returned.");  
+  return;  
+}  
+
+alert("Admin authentication successful!");  
+
+// Keep the admin page open after successful login.  
+// We will connect product publishing after testing authentication.
+
+} catch (error) {
+alert("An error occurred: " + error.message);
+} finally {
+if (button) {
+button.disabled = false;
+button.textContent = "Sign In";
+}
+}
+}
