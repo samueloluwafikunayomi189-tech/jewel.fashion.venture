@@ -11,9 +11,10 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JKc42ZuJpaHIWXFk0K4I9g_QzqVo1xU
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
-
-  window.supabaseClient = supabaseClient;
 );
+  window.supabaseClient =
+    supabaseClient;
+
 const WHATSAPP_NUMBER = "+234 906 423 8417";
 
 const menuToggle = document.getElementById("menuToggle");
