@@ -266,9 +266,24 @@ const { error: insertError } = await supabase
 
 async function loadPublishedProducts() {
   const img = document.createElement("img");
-img.src = product.image_url;
+
 img.alt = product.name || "Jewel fashion design";
 img.loading = "lazy";
+img.style.display = "block";
+img.style.width = "100%";
+img.style.height = "auto";
+img.style.objectFit = "cover";
+
+img.onerror = function () {
+  console.error("Product image failed to load:", product.image_url);
+  img.alt = "Image unavailable";
+};
+
+img.onload = function () {
+  console.log("Product image loaded successfully:", product.name);
+};
+
+img.src = product.image_url;
   const container = document.getElementById("live-products");
   const loading = document.getElementById("products-loading");
   const message = document.getElementById("products-message");
