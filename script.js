@@ -265,6 +265,10 @@ const { error: insertError } = await supabase
 }
 
 async function loadPublishedProducts() {
+  const img = document.createElement("img");
+img.src = product.image_url;
+img.alt = product.name || "Jewel fashion design";
+img.loading = "lazy";
   const container = document.getElementById("live-products");
   const loading = document.getElementById("products-loading");
   const message = document.getElementById("products-message");
