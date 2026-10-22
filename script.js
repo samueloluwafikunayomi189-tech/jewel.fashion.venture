@@ -228,14 +228,16 @@ async function publishProduct() {
     const imageUrl = urlData.publicUrl;
 
     // Save product details to the existing Product table.
-    const { error: insertError } = await supabase
-      .from("product_images")
-      .insert([{
-        name: name,
-        price: Number(priceValue),
-        description: description,
-        image_url: imageUrl
-      }]);
+    
+const { error: insertError } = await supabase
+  .from('"Product"')
+  .insert([{
+    name: name,
+    price: Number(priceValue),
+    description: description,
+    image_url: imageUrl
+  }]);
+
 
     if (insertError) {
       throw new Error(
