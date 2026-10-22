@@ -230,7 +230,7 @@ async function publishProduct() {
     // Save product details to the existing Product table.
     
 const { error: insertError } = await supabase
-  .from('"Product"')
+  .from("Product")
   .insert([{
     name: name,
     price: Number(priceValue),
