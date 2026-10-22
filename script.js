@@ -263,3 +263,76 @@ const { error: insertError } = await supabase
     }
   }
 }
+
+async function loadPublishedProducts() {
+  const container = document.getElementById("live-products");
+  const loading = document.getElementById("products-loading");
+  const message = document.getElementById("products-message");
+
+  // This code should run only on the main website.
+  if (!container) return;
+
+  try {
+    const { data: products, error } = await window.supabaseClient
+      .from("Product")
+      .select("name, price, description, image_url")
+      .order("name", { ascending: true });
+
+    if (error) throw error;
+
+    if (loading) loading.hidden = true;
+
+    if (!products || products.length === 0) {
+      message.textContent = "New designs will be available soon.";
+      return;
+    }
+
+    container.replaceChildren();
+
+    products.forEach((product) => {
+      const card = document.createElement("article");
+      card.className = "collection-card";
+
+      const img = document.createElement("img");
+      img.src = product.image_url;
+      img.alt = product.name || "Jewel fashion design";
+      img.loading = "lazy";
+
+      const info = document.createElement("div");
+      info.className = "collection-info";
+
+      const title = document.createElement("h3");
+      title.textContent = product.name;
+
+      const price = document.createElement("p");
+      price.textContent = "₦" + Number(product.price).toLocaleString("en-NG");
+
+      const description = document.createElement("p");
+      description.textContent = product.description || "";
+
+      const order = document.createElement("a");
+      order.href = "#contact-us";
+      order.textContent = "Enquire on WhatsApp ↗";
+
+      order.addEventListener("click", (event) => {
+        event.preventDefault();
+        openWhatsApp(
+          "Hello Jewel Fashion Designer Venture, I am interested in " +
+          product.name + ". Please share more details."
+        );
+      });
+
+      info.append(title, price, description, order);
+      card.append(img, info);
+      container.append(card);
+    });
+
+  } catch (error) {
+    if (loading) loading.hidden = true;
+    message.textContent = "We couldn't load our latest designs right now.";
+    console.error("Product loading failed:", error.message);
+  }
+}
+
+loadPublishedProducts();
+
