@@ -156,20 +156,108 @@ button.textContent = "Sign In";
 
 async function publishProduct() {
   const name = document.getElementById("product")?.value.trim();
-  const price = Number(document.getElementById("price")?.value);
-  const description = document.getElementById("description")?.value.trim();
+  const priceValue = document.getElementById("price")?.value;
+  const description =
+    document.getElementById("description")?.value.trim() || "";
   const photoInput = document.getElementById("photo");
+  const file = photoInput?.files?.[0];
 
-  if (!name || !price || price <= 0) {
+  const supabase = window.supabaseClient;
+
+  if (!supabase) {
+    alert("Supabase is not connected. Check script.js.");
+    return;
+  }
+
+  if (!name || !priceValue || Number(priceValue) <= 0) {
     alert("Enter a product name and a valid price.");
     return;
   }
 
-  if (!window.supabaseClient) {
-    alert("Supabase is not connected.");
+  if (!file) {
+    alert("Please select a product photo.");
     return;
   }
 
-  alert("Product form is working. Next, we will connect photo upload and database publishing.");
-}
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image file.");
+    return;
+  }
 
+  if (file.size > 5 * 1024 * 1024) {
+    alert("Please choose an image smaller than 5 MB.");
+    return;
+  }
+
+  const button = document.querySelector(
+    'button[onclick="publishProduct()"]'
+  );
+
+  if (button) {
+    button.disabled = true;
+    button.textContent = "Publishing...";
+  }
+
+  let uploadedPath = null;
+
+  try {
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    const filePath =
+      Date.now() + "-" + safeName;
+
+    // Upload the image to Supabase Storage.
+    const { data: uploadData, error: uploadError } =
+      await supabase.storage
+        .from("product-images")
+        .upload(filePath, file, {
+          upsert: false,
+          contentType: file.type
+        });
+
+    if (uploadError) {
+      throw new Error("Photo upload failed: " + uploadError.message);
+    }
+
+    uploadedPath = uploadData.path;
+
+    // Get the URL for displaying the uploaded image.
+    const { data: urlData } = supabase.storage
+      .from("product-images")
+      .getPublicUrl(uploadedPath);
+
+    const imageUrl = urlData.publicUrl;
+
+    // Save product details to the existing Product table.
+    const { error: insertError } = await supabase
+      .from("Product")
+      .insert([{
+        name: name,
+        price: Number(priceValue),
+        description: description,
+        image_url: imageUrl
+      }]);
+
+    if (insertError) {
+      throw new Error(
+        "Photo uploaded, but saving the product failed: " +
+        insertError.message
+      );
+    }
+
+    alert("Product published successfully!");
+
+    document.getElementById("product").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("description").value = "";
+    photoInput.value = "";
+
+  } catch (error) {
+    alert(error.message || "Something went wrong while publishing.");
+
+  } finally {
+    if (button) {
+      button.disabled = false;
+      button.textContent = "Add Product";
+    }
+  }
+}
