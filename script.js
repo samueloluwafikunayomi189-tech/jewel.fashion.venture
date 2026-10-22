@@ -208,7 +208,7 @@ async function publishProduct() {
     // Upload the image to Supabase Storage.
     const { data: uploadData, error: uploadError } =
       await supabase.storage
-        .from("product-images")
+        .from("product_images")
         .upload(filePath, file, {
           upsert: false,
           contentType: file.type
@@ -222,14 +222,14 @@ async function publishProduct() {
 
     // Get the URL for displaying the uploaded image.
     const { data: urlData } = supabase.storage
-      .from("product-images")
+      .from("product_images")
       .getPublicUrl(uploadedPath);
 
     const imageUrl = urlData.publicUrl;
 
     // Save product details to the existing Product table.
     const { error: insertError } = await supabase
-      .from("Product")
+      .from("product_images")
       .insert([{
         name: name,
         price: Number(priceValue),
