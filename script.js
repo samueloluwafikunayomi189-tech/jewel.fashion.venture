@@ -153,3 +153,23 @@ button.textContent = "Sign In";
 }
 }
 }
+
+async function publishProduct() {
+  const name = document.getElementById("product")?.value.trim();
+  const price = Number(document.getElementById("price")?.value);
+  const description = document.getElementById("description")?.value.trim();
+  const photoInput = document.getElementById("photo");
+
+  if (!name || !price || price <= 0) {
+    alert("Enter a product name and a valid price.");
+    return;
+  }
+
+  if (!window.supabaseClient) {
+    alert("Supabase is not connected.");
+    return;
+  }
+
+  alert("Product form is working. Next, we will connect photo upload and database publishing.");
+}
+
