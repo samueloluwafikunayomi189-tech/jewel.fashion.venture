@@ -265,35 +265,16 @@ const { error: insertError } = await supabase
 }
 
 async function loadPublishedProducts() {
-  const img = document.createElement("img");
-
-img.alt = product.name || "Jewel fashion design";
-img.loading = "lazy";
-img.style.display = "block";
-img.style.width = "100%";
-img.style.height = "auto";
-img.style.objectFit = "cover";
-
-img.onerror = function () {
-  console.error("Product image failed to load:", product.image_url);
-  img.alt = "Image unavailable";
-};
-
-img.onload = function () {
-  console.log("Product image loaded successfully:", product.name);
-};
-
-img.src = product.image_url;
   const container = document.getElementById("live-products");
   const loading = document.getElementById("products-loading");
   const message = document.getElementById("products-message");
 
-  // This code should run only on the main website.
+  // Run only on the main website.
   if (!container) return;
 
   try {
     const { data: products, error } = await window.supabaseClient
-      .from("Product")
+      .from("products")
       .select("name, price, description, image_url")
       .order("name", { ascending: true });
 
@@ -302,29 +283,47 @@ img.src = product.image_url;
     if (loading) loading.hidden = true;
 
     if (!products || products.length === 0) {
-      message.textContent = "New designs will be available soon.";
+      if (message) {
+        message.textContent = "New designs will be available soon.";
+      }
       return;
     }
 
     container.replaceChildren();
+
+    if (message) message.textContent = "";
 
     products.forEach((product) => {
       const card = document.createElement("article");
       card.className = "collection-card";
 
       const img = document.createElement("img");
-      img.src = product.image_url;
       img.alt = product.name || "Jewel fashion design";
       img.loading = "lazy";
+      img.style.display = "block";
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.objectFit = "cover";
+
+      img.onerror = function () {
+        console.error(
+          "Product image failed to load:",
+          product.image_url
+        );
+        img.alt = "Image unavailable";
+      };
+
+      img.src = product.image_url;
 
       const info = document.createElement("div");
       info.className = "collection-info";
 
       const title = document.createElement("h3");
-      title.textContent = product.name;
+      title.textContent = product.name || "";
 
       const price = document.createElement("p");
-      price.textContent = "₦" + Number(product.price).toLocaleString("en-NG");
+      price.textContent =
+        "₦" + Number(product.price).toLocaleString("en-NG");
 
       const description = document.createElement("p");
       description.textContent = product.description || "";
@@ -348,10 +347,16 @@ img.src = product.image_url;
 
   } catch (error) {
     if (loading) loading.hidden = true;
-    message.textContent = "We couldn't load our latest designs right now.";
+
+    if (message) {
+      message.textContent =
+        "We couldn't load our latest designs right now.";
+    }
+
     console.error("Product loading failed:", error.message);
   }
-}
+  }
+  
 
 loadPublishedProducts();
 
