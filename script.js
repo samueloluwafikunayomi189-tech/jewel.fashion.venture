@@ -205,7 +205,48 @@ async function publishProduct() {
     const filePath =
       Date.now() + "-" + safeName;
 
-    // Upload the image to Supabase Storage.
+          img.style.display = "block";
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.objectFit = "cover";
+
+      img.onerror = function () {
+        console.error(
+          "Product image failed to load:",
+          product.image_url
+        );
+        img.alt = "Image unavailable";
+      };
+
+      img.src = Product.image_url;
+
+      const info = document.createElement("div");
+      info.className = "collection-info";
+
+      const title = document.createElement("h3");
+      title.textContent = product.name || "";
+
+      const price = document.createElement("p");
+      price.textContent =
+        "₦" + Number(product.price).toLocaleString("en-NG");
+
+      const description = document.createElement("p");
+      description.textContent = product.description || "";
+
+      const order = document.createElement("a");
+      order.href = "#contact-us";
+      order.textContent = "Enquire on WhatsApp ↗";
+
+      order.addEventListener("click", (event) => {
+        event.preventDefault();
+        openWhatsApp(
+          "Hello Jewel Fashion Designer Venture, I am interested in " +
+          product.name + ". Please share more details."
+        );
+      });
+
+      info.append(title, price, description, order);
+      card.append(img// Upload the image to Supabase Storage.
     const { data: uploadData, error: uploadError } =
       await supabase.storage
         .from("product_images")
@@ -298,50 +339,9 @@ async function loadPublishedProducts() {
       card.className = "collection-card";
 
       const img = document.createElement("img");
-      img.alt = Product.name || "Jewel fashion design";
+      img.alt = product.name || "Jewel fashion design";
       img.loading = "lazy";
-      img.style.display = "block";
-      img.style.width = "100%";
-      img.style.height = "auto";
-      img.style.objectFit = "cover";
-
-      img.onerror = function () {
-        console.error(
-          "Product image failed to load:",
-          product.image_url
-        );
-        img.alt = "Image unavailable";
-      };
-
-      img.src = Product.image_url;
-
-      const info = document.createElement("div");
-      info.className = "collection-info";
-
-      const title = document.createElement("h3");
-      title.textContent = product.name || "";
-
-      const price = document.createElement("p");
-      price.textContent =
-        "₦" + Number(product.price).toLocaleString("en-NG");
-
-      const description = document.createElement("p");
-      description.textContent = product.description || "";
-
-      const order = document.createElement("a");
-      order.href = "#contact-us";
-      order.textContent = "Enquire on WhatsApp ↗";
-
-      order.addEventListener("click", (event) => {
-        event.preventDefault();
-        openWhatsApp(
-          "Hello Jewel Fashion Designer Venture, I am interested in " +
-          product.name + ". Please share more details."
-        );
-      });
-
-      info.append(title, price, description, order);
-      card.append(img, info);
+, info);
       container.append(card);
     });
 
