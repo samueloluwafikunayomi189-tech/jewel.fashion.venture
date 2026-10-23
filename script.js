@@ -274,7 +274,7 @@ async function loadPublishedProducts() {
 
   try {
     const { data: products, error } = await window.supabaseClient
-      .from("products")
+      .from("Product")
       .select("name, price, description, image_url")
       .order("name", { ascending: true });
 
@@ -298,7 +298,7 @@ async function loadPublishedProducts() {
       card.className = "collection-card";
 
       const img = document.createElement("img");
-      img.alt = product.name || "Jewel fashion design";
+      img.alt = Product.name || "Jewel fashion design";
       img.loading = "lazy";
       img.style.display = "block";
       img.style.width = "100%";
@@ -313,7 +313,7 @@ async function loadPublishedProducts() {
         img.alt = "Image unavailable";
       };
 
-      img.src = product.image_url;
+      img.src = Product.image_url;
 
       const info = document.createElement("div");
       info.className = "collection-info";
