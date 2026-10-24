@@ -412,3 +412,22 @@ html {
     overflow-wrap: anywhere;
   }
 }
+
+
+.brand-copy strong {
+  display: block;
+  font-size: 18px;
+}
+
+.brand-copy small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  color: #d4af37;
+  white-space: normal;
+}
+
+.brand {
+  gap: 10px;
+}
