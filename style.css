@@ -204,3 +204,138 @@ h2 { font-size: clamp(40px, 5vw, 66px); line-height: .98; margin: 0; letter-spac
   background: #1da851;
 }
 
+/* =====================================
+   JEWEL PREMIUM VISUAL ENHANCEMENT
+   Additive upgrade — preserves existing styles
+===================================== */
+
+/* Smoother scrolling and visual transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+.site-header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Elegant gold navigation underline */
+.main-nav a:not(.nav-contact) {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:not(.nav-contact)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--gold-light);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:not(.nav-contact):hover::after {
+  width: 100%;
+}
+
+/* Refined gold buttons */
+.btn-gold,
+.contact-whatsapp {
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-gold:hover,
+.contact-whatsapp:hover {
+  box-shadow: 0 7px 24px rgba(201, 164, 92, 0.2);
+  transform: translateY(-2px);
+}
+
+/* More polished fashion collection cards */
+.collection-card,
+.gallery-grid img {
+  border: 1px solid rgba(201, 164, 92, 0.12);
+}
+
+.collection-card {
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.collection-card:hover {
+  border-color: rgba(201, 164, 92, 0.65);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.collection-card img {
+  transition: transform 0.7s ease;
+}
+
+/* More refined section headings */
+.section-heading h2,
+.intro-grid h2,
+.contact-frame h2 {
+  text-wrap: balance;
+}
+
+.section-kicker {
+  text-transform: uppercase;
+}
+
+/* Softer gallery presentation */
+.gallery-grid img {
+  transition:
+    filter 0.4s ease,
+    transform 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.gallery-grid img:hover {
+  border-color: var(--gold);
+}
+
+/* More comfortable mobile browsing */
+@media (max-width: 480px) {
+  .section-pad {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .collection-info {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+
+  .contact-whatsapp {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .floating-whatsapp {
+    right: 12px;
+    bottom: 16px;
+    padding: 12px 15px;
+  }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
