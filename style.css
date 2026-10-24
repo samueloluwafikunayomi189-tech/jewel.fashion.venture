@@ -419,15 +419,22 @@ html {
   font-size: 18px;
 }
 
+.brand-copy strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
 .brand-copy small {
   display: block;
-  font-size: 9px;
-  letter-spacing: 0.5px;
-  margin-top: 5px;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  margin-top: 6px;
   color: #d4af37;
   white-space: normal;
 }
 
 .brand {
-  gap: 10px;
+  gap: 12px;
 }
