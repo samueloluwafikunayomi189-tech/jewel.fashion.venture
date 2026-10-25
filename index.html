@@ -348,26 +348,25 @@
 </section>
 <!-- END MORE FASHION DESIGNS -->
   
-  <section id="order-outfit" class="order-section">
-  <h2>Place Your Order</h2>
-  <p>Tell us the outfit you want, and we’ll contact you on WhatsApp.</p>
+loadPublishedProducts();
 
-  <form id="outfitOrderForm">
-    <label for="orderName">Full Name</label>
-    <input id="orderName" type="text" placeholder="Your full name" required>
+document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    <label for="orderBudget">Your Budget (₦)</label>
-    <input id="orderBudget" type="number" min="0" placeholder="Enter your budget" required>
+  const name = document.getElementById("orderName").value.trim();
+  const budget = document.getElementById("orderBudget").value;
+  const address = document.getElementById("orderAddress").value.trim();
+  const outfit = document.getElementById("orderOutfit").value.trim();
 
-    <label for="orderAddress">Delivery Address</label>
-    <textarea id="orderAddress" placeholder="Your delivery address" required></textarea>
+  const message =
+    "NEW OUTFIT ORDER - FITS WITH JADE\n\n" +
+    "Customer name: " + name + "\n" +
+    "Budget: ₦" + budget + "\n" +
+    "Delivery address: " + address + "\n" +
+    "Outfit requested: " + outfit;
 
-    <label for="orderOutfit">What Outfit Do You Want?</label>
-    <textarea id="orderOutfit" placeholder="Describe the outfit, colour, size or style" required></textarea>
-
-    <button type="submit">Send Order on WhatsApp</button>
-  </form>
-</section>
-
-  </body>
+  openWhatsApp(message);
+});
+  
+    </body>
 </html>
