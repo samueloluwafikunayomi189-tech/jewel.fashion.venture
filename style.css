@@ -524,3 +524,281 @@ html {
     padding: 15px;
   }
 }
+/* =========================================
+   FITS WITH JADE — LUXURY BLACK & GOLD
+   Add at the bottom of style.css
+========================================= */
+
+:root {
+  --jade-black: #080808;
+  --jade-gold: #d4af37;
+  --jade-light-gold: #f5d778;
+  --jade-white: #fffaf0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--jade-black);
+  color: var(--jade-white);
+}
+
+/* HEADER */
+header {
+  background: #080808;
+  color: var(--jade-white);
+  border-bottom: 1px solid var(--jade-gold);
+}
+
+header a,
+header nav a {
+  color: var(--jade-white);
+  text-decoration: none;
+}
+
+header a:hover,
+header nav a:hover {
+  color: var(--jade-light-gold);
+}
+
+/* MAIN FASHION BANNER */
+.jade-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 470px;
+  padding: 45px 7%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.72) 42%,
+      rgba(0, 0, 0, 0.10) 100%
+    ),
+    url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=85")
+    center 35% / cover no-repeat;
+  border-bottom: 2px solid var(--jade-gold);
+}
+
+.jade-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.jade-eyebrow {
+  color: #ffffff;
+  font-size: clamp(20px, 3vw, 30px);
+  letter-spacing: 4px;
+  margin: 0 0 5px;
+}
+
+.jade-hero h1 {
+  color: var(--jade-light-gold);
+  font-family: Georgia, serif;
+  font-size: clamp(60px, 10vw, 105px);
+  font-weight: normal;
+  line-height: 0.95;
+  letter-spacing: 2px;
+  margin: 0 0 18px;
+}
+
+.jade-tagline {
+  color: var(--jade-gold);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.jade-script {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-style: italic;
+  margin: 22px 0;
+}
+
+/* SHOP NOW BUTTON */
+.jade-button {
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--jade-gold);
+  color: #080808 !important;
+  border: 1px solid var(--jade-light-gold);
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.jade-button:hover {
+  background: var(--jade-light-gold);
+  transform: translateY(-2px);
+}
+
+/* ROUND FASHION CATEGORIES */
+.jade-categories {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+  padding: 30px 4%;
+  background: #0b0b0b;
+  border-bottom: 1px solid #4f3d17;
+  text-align: center;
+}
+
+.jade-category {
+  min-width: 0;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.jade-category img {
+  display: block;
+  width: clamp(62px, 12vw, 125px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 2px solid var(--jade-gold);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  transition: transform 0.25s;
+}
+
+.jade-category:hover img {
+  transform: scale(1.05);
+}
+
+.jade-category span {
+  display: block;
+  font-size: clamp(10px, 1.8vw, 15px);
+  line-height: 1.4;
+}
+
+.jade-category:hover {
+  color: var(--jade-light-gold);
+}
+
+/* EXISTING PRODUCT SECTION */
+.jewel-products,
+#products,
+#featured-products,
+.products-section {
+  background: #080808;
+  color: #ffffff;
+  padding: 30px 4%;
+}
+
+.jewel-products h2,
+#products h2,
+#featured-products h2,
+.products-section h2 {
+  color: var(--jade-light-gold);
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+/* EXISTING PRODUCT CARDS */
+.jewel-product-card,
+.product-card {
+  background: #101010;
+  color: #ffffff;
+  border: 1px solid #806321;
+  border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.jewel-product-card img,
+.product-card img {
+  display: block;
+  max-width: 100%;
+}
+
+.jewel-product-card h3,
+.product-card h3 {
+  color: var(--jade-light-gold);
+}
+
+/* BUTTONS */
+button,
+.jewel-product-card button,
+.product-card button,
+.order-button,
+.add-to-cart {
+  cursor: pointer;
+}
+
+.jewel-product-card button,
+.product-card button,
+.order-button,
+.add-to-cart {
+  background: var(--jade-gold);
+  color: #080808;
+  border: 1px solid var(--jade-light-gold);
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-weight: bold;
+}
+
+.jewel-product-card button:hover,
+.product-card button:hover,
+.order-button:hover,
+.add-to-cart:hover {
+  background: var(--jade-light-gold);
+}
+
+/* OTHER SECTIONS */
+section {
+  scroll-margin-top: 20px;
+}
+
+footer {
+  background: #030303;
+  color: #ffffff;
+  border-top: 1px solid var(--jade-gold);
+}
+
+footer a {
+  color: var(--jade-light-gold);
+}
+
+/* MOBILE PHONE DESIGN */
+@media (max-width: 600px) {
+  .jade-hero {
+    min-height: 370px;
+    padding: 35px 6%;
+    background-position: 62% center;
+  }
+
+  .jade-hero-content {
+    max-width: 78%;
+  }
+
+  .jade-hero h1 {
+    font-size: clamp(48px, 13vw, 75px);
+  }
+
+  .jade-tagline {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .jade-categories {
+    gap: 7px;
+    padding: 22px 2%;
+  }
+
+  .jade-category img {
+    width: min(17vw, 80px);
+  }
+
+  .jade-category span {
+    font-size: 10px;
+  }
+ }
+   
