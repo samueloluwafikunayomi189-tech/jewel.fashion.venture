@@ -378,3 +378,10 @@ document.getElementById("outfitOrderForm")?.addEventListener("submit", function 
 
   openWhatsApp(message);
 });
+
+function openWhatsApp(message) {
+    const phoneNumber = "2348012345678";
+    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+                        }
+
