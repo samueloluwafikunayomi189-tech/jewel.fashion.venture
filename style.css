@@ -958,3 +958,51 @@ footer a {
   font-weight: bold !important;
   cursor: pointer !important;
 }
+
+/* Make Jewel order form visible */
+#jewel-order-section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  width: 90% !important;
+  max-width: 600px !important;
+  margin: 40px auto !important;
+  padding: 25px !important;
+  box-sizing: border-box !important;
+  background: #111 !important;
+  color: #fff !important;
+  border: 2px solid #d4af37 !important;
+  border-radius: 12px !important;
+  z-index: 1 !important;
+}
+
+#jewel-order-section label {
+  display: block !important;
+  color: #d4af37 !important;
+  margin-top: 15px !important;
+}
+
+#jewel-order-section input,
+#jewel-order-section textarea {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 12px !important;
+  margin-top: 6px !important;
+  background: #222 !important;
+  color: #fff !important;
+  border: 1px solid #d4af37 !important;
+  border-radius: 6px !important;
+}
+
+#jewel-order-section button {
+  display: block !important;
+  width: 100% !important;
+  padding: 14px !important;
+  margin-top: 20px !important;
+  background: #d4af37 !important;
+  color: #111 !important;
+  font-weight: bold !important;
+}
+
