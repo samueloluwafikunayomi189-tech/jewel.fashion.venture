@@ -894,3 +894,67 @@ footer a {
   }
 }
 
+/* JEWEL FASHION - ORDER FORM */
+
+#jewel-order-section {
+  display: block !important;
+  width: 90% !important;
+  max-width: 600px !important;
+  box-sizing: border-box !important;
+  margin: 40px auto !important;
+  padding: 25px !important;
+  background: #111 !important;
+  color: #fff !important;
+  border: 2px solid #d4af37 !important;
+  border-radius: 14px !important;
+}
+
+#jewel-order-section h2 {
+  color: #d4af37 !important;
+  text-align: center !important;
+  font-size: 26px !important;
+}
+
+#jewel-order-section p {
+  color: #eee !important;
+  text-align: center !important;
+}
+
+#outfitOrderForm label {
+  display: block !important;
+  margin-top: 16px !important;
+  color: #d4af37 !important;
+  font-weight: bold !important;
+}
+
+#outfitOrderForm input,
+#outfitOrderForm textarea {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 13px !important;
+  margin-top: 7px !important;
+  border: 1px solid #d4af37 !important;
+  border-radius: 7px !important;
+  background: #222 !important;
+  color: #fff !important;
+  font-size: 16px !important;
+}
+
+#outfitOrderForm textarea {
+  min-height: 100px !important;
+}
+
+#outfitOrderForm button {
+  display: block !important;
+  width: 100% !important;
+  margin-top: 22px !important;
+  padding: 15px !important;
+  background: #d4af37 !important;
+  color: #111 !important;
+  border: none !important;
+  border-radius: 7px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+}
