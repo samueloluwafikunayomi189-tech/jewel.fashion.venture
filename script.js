@@ -357,7 +357,6 @@ async function loadPublishedProducts() {
   }
   }
   
-
 loadPublishedProducts();
 
 document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
