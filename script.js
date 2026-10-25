@@ -374,27 +374,21 @@ document.getElementById("outfitOrderForm")?.addEventListener("submit", function 
     "Delivery address: " + address + "\n" +
     "Outfit requested: " + outfit;
 
-  // Reuse the WhatsApp number already configured on the website.
-  const existingWhatsAppButton = document.querySelector(
-    'a[href*="wa.me/"], a[href*="api.whatsapp.com/send"]'
-  );
+  
+document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  if (!existingWhatsAppButton) {
-    alert("WhatsApp number not found. Please check the existing WhatsApp button.");
-    return;
-  }
+  const name = document.getElementById("orderName").value.trim();
+  const budget = document.getElementById("orderBudget").value;
+  const address = document.getElementById("orderAddress").value.trim();
+  const outfit = document.getElementById("orderOutfit").value.trim();
 
-  const whatsappLink = existingWhatsAppButton.href;
-  const numberMatch = whatsappLink.match(/(?:wa\.me\/|phone=)(\+?\d+)/i);
+  const message =
+    "NEW OUTFIT ORDER - FITS WITH JADE\n\n" +
+    "Customer name: " + name + "\n" +
+    "Budget: ₦" + budget + "\n" +
+    "Delivery address: " + address + "\n" +
+    "Outfit requested: " + outfit;
 
-  if (!numberMatch) {
-    alert("Could not read the WhatsApp number from the existing button.");
-    return;
-  }
-
-  const number = numberMatch[1].replace(/\D/g, "");
-  const url = "https://wa.me/" + number +
-    "?text=" + encodeURIComponent(message);
-
-  window.open(url, "_blank");
+  openWhatsApp(message);
 });
