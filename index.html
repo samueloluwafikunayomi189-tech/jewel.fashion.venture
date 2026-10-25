@@ -395,5 +395,16 @@
 </section>
 <!-- END MORE FASHION DESIGN>
   
-    </body>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch((error) => {
+        console.error("App setup failed:", error);
+      });
+  });
+}
+</script>
+  
+</body>
 </html>
