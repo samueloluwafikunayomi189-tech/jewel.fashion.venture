@@ -358,23 +358,6 @@ async function loadPublishedProducts() {
   }
   
 loadPublishedProducts();
-
-document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const name = document.getElementById("orderName").value.trim();
-  const budget = document.getElementById("orderBudget").value;
-  const address = document.getElementById("orderAddress").value.trim();
-  const outfit = document.getElementById("orderOutfit").value.trim();
-
-  const message =
-    "NEW OUTFIT ORDER - FITS WITH JADE\n\n" +
-    "Customer name: " + name + "\n" +
-    "Budget: ₦" + budget + "\n" +
-    "Delivery address: " + address + "\n" +
-    "Outfit requested: " + outfit;
-
-  
 document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
   event.preventDefault();
 
