@@ -357,12 +357,14 @@ async function loadPublishedProducts() {
   }
   }
   
+
 loadPublishedProducts();
+
 document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
   event.preventDefault();
 
   alert("The order form is working.");
-  
+
   const name = document.getElementById("orderName").value.trim();
   const budget = document.getElementById("orderBudget").value;
   const address = document.getElementById("orderAddress").value.trim();
@@ -373,9 +375,7 @@ document.getElementById("outfitOrderForm")?.addEventListener("submit", function 
     "Customer name: " + name + "\n" +
     "Budget: ₦" + budget + "\n" +
     "Delivery address: " + address + "\n" +
-    "Outfit requested: " + outfit:
+    "Outfit requested: " + outfit;
 
   openWhatsApp(message);
 });
-}
-  
