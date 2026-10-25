@@ -373,7 +373,9 @@ document.getElementById("outfitOrderForm")?.addEventListener("submit", function 
     "Customer name: " + name + "\n" +
     "Budget: ₦" + budget + "\n" +
     "Delivery address: " + address + "\n" +
-    "Outfit requested: " + outfit;
+    "Outfit requested: " + outfit:
 
   openWhatsApp(message);
 });
+}
+  
