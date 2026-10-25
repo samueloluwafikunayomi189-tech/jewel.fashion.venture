@@ -361,6 +361,8 @@ loadPublishedProducts();
 document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  alert("The order form is working.");
+  
   const name = document.getElementById("orderName").value.trim();
   const budget = document.getElementById("orderBudget").value;
   const address = document.getElementById("orderAddress").value.trim();
