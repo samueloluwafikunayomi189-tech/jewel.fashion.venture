@@ -362,26 +362,21 @@ loadPublishedProducts();
 document.getElementById("outfitOrderForm")?.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  alert("The order form is working.");
-
   const name = document.getElementById("orderName").value.trim();
   const budget = document.getElementById("orderBudget").value;
   const address = document.getElementById("orderAddress").value.trim();
-  const outfit = document.getElementById("orderOutfit").value.trim();
+  const phone = document.getElementById("orderPhone").value.trim();
 
   const message =
-    "NEW OUTFIT ORDER - FITS WITH JADE\n\n" +
-    "Customer name: " + name + "\n" +
+    "NEW ORDER - JEWEL FASHION DESIGNER VENTURE\n\n" +
+    "Customer Name: " + name + "\n" +
     "Budget: ₦" + budget + "\n" +
-    "Delivery address: " + address + "\n" +
-    "Outfit requested: " + outfit;
+    "Delivery Address: " + address + "\n" +
+    "Customer Phone: " + phone;
 
-  openWhatsApp(message);
+  const businessNumber = "2349064238417";
+  const url = "https://wa.me/" + businessNumber +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
 });
-
-function openWhatsApp(message) {
-    const phoneNumber = "+234 906 423 8417";
-    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-                        }
-
