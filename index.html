@@ -489,17 +489,14 @@
 </script>
 <!-- CONSUMER ORDER SECTION END -->
   
-  
   <script>
-  
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .catch((error) => {
-        console.error("App setup failed:", error);
-      });
-  });
-}
-</script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(() => console.log("Service worker registered"))
+        .catch((error) => console.error("Service worker error:", error));
+    });
+  }
+  </script>
 </body>
 </html>
