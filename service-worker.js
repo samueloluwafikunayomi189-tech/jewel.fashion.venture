@@ -1,10 +1,12 @@
 
-const CACHE_NAME = "fits-with-jade-v1";
+const CACHE_NAME = "fits-with-jade-v2";
 
 const APP_FILES = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -13,6 +15,7 @@ self.addEventListener("install", (event) => {
       cache.addAll(APP_FILES)
     )
   );
+
   self.skipWaiting();
 });
 
@@ -26,6 +29,7 @@ self.addEventListener("activate", (event) => {
       )
     )
   );
+
   self.clients.claim();
 });
 
@@ -33,8 +37,21 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
-    fetch(event.request).catch(() =>
-      caches.match(event.request)
-    )
+    fetch(event.request)
+      .then((response) => {
+        if (response.ok && new URL(event.request.url).origin === self.location.origin) {
+          const copy = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, copy);
+          });
+        }
+
+        return response;
+      })
+      .catch(async () => {
+        const cached = await caches.match(event.request);
+        return cached || caches.match("./index.html");
+      })
   );
 });
