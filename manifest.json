@@ -1,22 +1,19 @@
 
 {
   "name": "FITS WITH JADE",
-  "short_name": "Fits with Jade",
-  "description": "Classy, elegant and unique fashion.",
+  "short_name": "FITS WITH JADE",
   "start_url": "./index.html",
-  "scope": "./",
   "display": "standalone",
   "background_color": "#080808",
-  "theme_color": "#080808",
-  "orientation": "portrait",
+  "theme_color": "#c9a45c",
   "icons": [
     {
-      "src": "./icons/icon-192.png",
+      "src": "./1793282449062.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "./icons/icon-512.png",
+      "src": "./fits_with_jade_512*512_1.png",
       "sizes": "512x512",
       "type": "image/png"
     }
